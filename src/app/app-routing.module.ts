@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
   { path: 'paciente', loadChildren: () => import('./feature/paciente/paciente.module').then(mod => mod.PacienteModule) },
   { path: 'documento', loadChildren: () => import('./feature/documento/documento.module').then(mod => mod.DocumentoModule) },
-  { path: 'categoria', loadChildren: () => import('./feature/categoria/categoria.module').then(mod => mod.CategoriaModule) }
+  { path: 'categoria', loadChildren: () => import('./feature/categoria/categoria.module').then(mod => mod.CategoriaModule) },
+  { path: 'cita', loadChildren: () => import('./feature/cita/cita.module').then(mod => mod.CitaModule) }
 
 ];
 
