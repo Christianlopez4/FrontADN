@@ -13,11 +13,19 @@ import { MatTableModule } from '@angular/material/table';
 
 import { NavPacienteComponent } from './components/nav-paciente/nav-paciente.component';
 import { ListarPacienteComponent } from './components/listar-paciente/listar-paciente.component';
+import { CrearPacienteComponent } from './components/crear-paciente/crear-paciente.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
     NavPacienteComponent,
-    ListarPacienteComponent
+    ListarPacienteComponent,
+    CrearPacienteComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +36,13 @@ import { ListarPacienteComponent } from './components/listar-paciente/listar-pac
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatDatepickerModule
   ]
 })
 export class PacienteModule { }
