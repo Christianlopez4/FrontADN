@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from '../../shared/service/paciente.service';
-//import { Observable } from 'rxjs';
 import { Paciente } from './../../shared/model/paciente';
 
 @Component({
