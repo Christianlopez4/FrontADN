@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Id" formControlName="id" type="number">
+            <input matInput type="number" id="idPaciente" name="idPaciente" placeholder="Id" formControlName="id" >
             <mat-error *ngIf="pacienteForm.controls['id'].hasError('required')">
               Id is <strong>required</strong>
             </mat-error>
@@ -29,7 +29,7 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Nombre" formControlName="nombre">
+            <input matInput type="text" id="nombrePaciente" name="nombrePaciente" placeholder="Nombre" formControlName="nombre">
             <mat-error *ngIf="pacienteForm.controls['nombre'].hasError('required')">
               First name is <strong>required</strong>
             </mat-error>
@@ -37,7 +37,7 @@
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Apellidos" formControlName="apellidos">
+            <input matInput type="text" id="apellidosPaciente" name="apellidosPaciente" placeholder="Apellidos" formControlName="apellidos">
             <mat-error *ngIf="pacienteForm.controls['apellidos'].hasError('required')">
               Last name is <strong>required</strong>
             </mat-error>
@@ -47,7 +47,7 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Correo electrónico" formControlName="correoElectronico" type="email">
+            <input matInput type="email" id="emailPaciente" name="emailPaciente" placeholder="Correo electrónico" formControlName="correoElectronico" >
             <mat-error *ngIf="pacienteForm.controls['correoElectronico'].hasError('required')">
               Email is <strong>required</strong>
             </mat-error>
@@ -55,7 +55,7 @@
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Teléfono" type="number" formControlName="telefono">
+            <input matInput type="number" id="telefonoPaciente" name="telefonoPaciente" placeholder="Teléfono" formControlName="telefono">
             <mat-error *ngIf="pacienteForm.controls['telefono'].hasError('required')">
               Phone is <strong>required</strong>
             </mat-error>
@@ -77,10 +77,10 @@
         </div>
         <div class="col">
           <mat-form-field appearance="fill">
-            <mat-label>Fecha de nacimiento</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <input matInput type="date" id="fechaNacimientoPaciente" name="fechaNacimientoPaciente" formControlName="fechaNacimiento">
+            <mat-error *ngIf="pacienteForm.controls['fechaNacimiento'].hasError('required')">
+              Birthday is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
