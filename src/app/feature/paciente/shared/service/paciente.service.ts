@@ -15,7 +15,7 @@ export class PacienteService {
   }
 
   public guardar(paciente: Paciente) {
-    return this.http.doPost(`${environment.endpoint}/pacientes`, paciente, this.http.optsName('crear paciente'));
+    return this.http.doPost<Paciente, Number>(`${environment.endpoint}/pacientes`, paciente, this.http.optsName('crear paciente'));
   }
 
 }

@@ -20,6 +20,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class PacienteModule { }

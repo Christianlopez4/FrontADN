@@ -19,7 +19,6 @@ export class ListarPacienteComponent implements OnInit {
     this.pacienteService.consultar()
     .subscribe(pacientes => {
       this.dataSource = pacientes;
-      console.log(pacientes);
     });
   }
 

@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PacienteService } from '../../shared/service/paciente.service';
 import { CategoriaService } from 'src/app/feature/categoria/shared/service/categoria.service';
 import { DocumentoService } from 'src/app/feature/documento/shared/service/documento.service';
 import { Categoria } from 'src/app/feature/categoria/shared/model/categoria';
 import { Documento } from 'src/app/feature/documento/shared/model/documento';
-
-const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
-const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 
 @Component({
   selector: 'app-crear-paciente',
@@ -23,7 +20,6 @@ export class CrearPacienteComponent implements OnInit {
     protected pacienteService: PacienteService, 
     protected categoriaService: CategoriaService,
     protected documentoService: DocumentoService,
-    protected formBuilder: FormBuilder,
     ) {}
 
   ngOnInit() {
@@ -33,16 +29,17 @@ export class CrearPacienteComponent implements OnInit {
   }
 
   private construirFormularioPaciente() {
-    this.pacienteForm = this.formBuilder.group({
-      id: ['', [Validators.required]],
-      nombre: ['', [Validators.required, Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO), Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO)]],
-      apellidos: ['', [Validators.required, Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO), Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO)]], 
-      fechaNacimiento: [],
-      correoElectronico: [],
-      telefono: [],
-      idCategoria: [],
-      idDocumento: []
-    })
+    this.pacienteForm = new FormGroup({
+      id: new FormControl('', [Validators.required]),
+      nombre: new FormControl('', [Validators.required]),
+      apellidos: new FormControl('', [Validators.required]), 
+      fechaNacimiento: new FormControl('', [Validators.required]),
+      correoElectronico: new FormControl('', [Validators.required, Validators.email]),
+      telefono: new FormControl('', [Validators.required]),
+      idCategoria: new FormControl('', [Validators.required]),
+      idDocumento: new FormControl('', [Validators.required])
+    });
+    
   }
 
   private cargarCategorias() {
@@ -60,6 +57,6 @@ export class CrearPacienteComponent implements OnInit {
   }
 
   onSubmit() {
-    alert('ok');
+    this.pacienteService.guardar(this.pacienteForm.value);
   }
 }
