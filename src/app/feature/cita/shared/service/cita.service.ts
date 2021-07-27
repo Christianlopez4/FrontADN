@@ -13,4 +13,8 @@ export class CitaService {
   public consultar() {
     return this.http.doGet<Cita[]>(`${environment.endpoint}/citas`, this.http.optsName('consultar citas'));
   }
+
+  public guardar(cita: Cita) {
+    return this.http.doPost<Cita, Number>(`${environment.endpoint}/citas`, cita, this.http.optsName('crear cita'));
+  }
 }
