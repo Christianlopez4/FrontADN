@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
 import { environment } from 'src/environments/environment';
-import { DocumentoModule } from '../../documento.module';
 import { Documento } from '../model/documento';
 
-@Injectable({
-  providedIn: DocumentoModule
-})
+@Injectable()
 export class DocumentoService {
 
   constructor(protected http: HttpService) { }

@@ -4,9 +4,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { ListarDocumentoComponent } from './listar-documento.component';
-import { DocumentoService } from '../../shared/service/documento.service';
+import { DocumentoService } from '@shared/services/documento/service/documento.service';
 import { HttpService } from '@core/services/http.service';
-import { Documento } from '../../shared/model/documento';
+import { Documento } from '@shared/services/documento/model/documento';
 import { of } from 'rxjs';
 
 describe('ListarDocumentoComponent', () => {

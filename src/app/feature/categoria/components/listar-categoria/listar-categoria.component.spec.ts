@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CategoriaService } from '../../shared/service/categoria.service';
+import { CategoriaService } from '@shared/services/categoria/service/categoria.service';
 import { HttpService } from 'src/app/core/services/http.service';
 
 import { ListarCategoriaComponent } from './listar-categoria.component';
-import { Categoria } from '../../shared/model/categoria';
+import { Categoria } from '@shared/services/categoria/model/categoria';
 import { of } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';

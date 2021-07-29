@@ -2,12 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PacienteModule } from '../../paciente.module';
 import { Paciente } from '../model/paciente';
 
-@Injectable({
-  providedIn: PacienteModule
-})
+@Injectable()
 export class PacienteService {
 
   constructor(protected http: HttpService) { }

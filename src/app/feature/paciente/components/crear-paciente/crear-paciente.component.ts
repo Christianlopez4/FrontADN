@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PacienteService } from '../../shared/service/paciente.service';
-import { CategoriaService } from 'src/app/feature/categoria/shared/service/categoria.service';
-import { DocumentoService } from 'src/app/feature/documento/shared/service/documento.service';
-import { Categoria } from 'src/app/feature/categoria/shared/model/categoria';
-import { Documento } from 'src/app/feature/documento/shared/model/documento';
+import { CategoriaService } from '@shared/services/categoria/service/categoria.service';
+import { DocumentoService } from '@shared/services/documento/service/documento.service';
+import { Categoria } from '@shared/services/categoria/model/categoria';
+import { Documento } from '@shared/services/documento/model/documento';
 
 @Component({
   selector: 'app-crear-paciente',

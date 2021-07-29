@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DocumentoService } from '../../shared/service/documento.service';
-import { Documento } from '../../shared/model/documento';
+import { DocumentoService } from '@shared/services/documento/service/documento.service';
+import { Documento } from '@shared/services/documento/model/documento';
 import { Observable } from 'rxjs';
 
 @Component({
