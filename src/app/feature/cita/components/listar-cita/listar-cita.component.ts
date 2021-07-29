@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CitaService } from '../../shared/service/cita.service';
 import { Cita } from '../../shared/model/cita';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-cita',
@@ -10,16 +11,12 @@ import { Cita } from '../../shared/model/cita';
 export class ListarCitaComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'fecha', 'hora', 'costo', 'idPaciente', 'estado'];
-  dataSource: Cita[] = [];
+  dataSource: Observable<Cita[]>;
 
   constructor(protected citaService: CitaService) { }
 
   ngOnInit(): void {
-    this.citaService.consultar()
-    .subscribe(citas => {
-      this.dataSource = citas;
-      console.log(citas);
-    })
+    this.dataSource = this.citaService.consultar();
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DocumentoService } from '../../shared/service/documento.service';
 import { Documento } from '../../shared/model/documento';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-documento',
@@ -10,15 +11,12 @@ import { Documento } from '../../shared/model/documento';
 export class ListarDocumentoComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'titulo'];
-  dataSource: Documento[] = [];
+  dataSource: Observable<Documento[]>;
 
   constructor(protected documentoService: DocumentoService) { }
 
   ngOnInit(): void {
-    this.documentoService.consultar()
-    .subscribe(documentos => {
-      this.dataSource = documentos;
-    })
+    this.dataSource = this.documentoService.consultar();
   }
 
 }

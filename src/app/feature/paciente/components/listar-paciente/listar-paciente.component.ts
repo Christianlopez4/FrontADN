@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { PacienteService } from '../../shared/service/paciente.service';
 import { Paciente } from './../../shared/model/paciente';
 
@@ -10,15 +11,12 @@ import { Paciente } from './../../shared/model/paciente';
 export class ListarPacienteComponent implements OnInit {
   
   displayedColumns: string[] = ['id', 'nombre', 'apellidos', 'fechaNacimiento', 'correoElectronico', 'telefono', 'idCategoria', 'idDocumento'];
-  dataSource: Paciente[];
+  dataSource: Observable<Paciente[]>;
 
   constructor(protected pacienteService: PacienteService) { }
 
   ngOnInit(): void {
-    this.pacienteService.consultar()
-    .subscribe(pacientes => {
-      this.dataSource = pacientes;
-    });
+    this.dataSource = this.pacienteService.consultar();
   }
 
 }

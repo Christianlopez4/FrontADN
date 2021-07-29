@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 listar-documento">
+<table mat-table [dataSource]="dataSource | async" class="mat-elevation-z8 listar-documento">
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> Id </th>

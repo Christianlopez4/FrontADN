@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../../shared/service/categoria.service';
 import { Categoria } from '../../shared/model/categoria';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-categoria',
@@ -10,15 +11,12 @@ import { Categoria } from '../../shared/model/categoria';
 export class ListarCategoriaComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'titulo', 'cuotaModeradora', 'multa'];
-  dataSource: Categoria[] = [];
+  dataSource: Observable<Categoria[]>;
 
   constructor(protected categoriaService: CategoriaService) { }
 
   ngOnInit(): void {
-    this.categoriaService.consultar()
-    .subscribe(categorias => {
-      this.dataSource = categorias;
-    })
+    this.dataSource = this.categoriaService.consultar();
   }
 
 }

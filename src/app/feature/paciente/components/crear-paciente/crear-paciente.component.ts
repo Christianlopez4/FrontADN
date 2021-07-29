@@ -57,6 +57,9 @@ export class CrearPacienteComponent implements OnInit {
   }
 
   onSubmit() {
-    this.pacienteService.guardar(this.pacienteForm.value);
+    this.pacienteService.guardar(this.pacienteForm.value)
+    .subscribe(() => {
+      alert('Paciente creado satisfactoriamente');
+    });
   }
 }

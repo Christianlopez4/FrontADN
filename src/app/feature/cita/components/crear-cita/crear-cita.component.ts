@@ -26,6 +26,9 @@ export class CrearCitaComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.citaService.guardar(this.citaForm.value);
+    this.citaService.guardar(this.citaForm.value)
+    .subscribe(() => {
+      alert('Cita creada satisfactoriamente');
+    });
   }
 }
