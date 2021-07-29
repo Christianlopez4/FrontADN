@@ -4,7 +4,7 @@ export class Cita {
     hora: Date;
     costo: number;
     idPaciente: number;
-    estado: string
+    estado: string;
 
     constructor(id: number, fecha: Date, hora: Date, costo: number, idPaciente: number, estado: string) {
         this.id = id;

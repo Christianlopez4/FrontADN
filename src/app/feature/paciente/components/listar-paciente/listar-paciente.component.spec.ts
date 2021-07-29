@@ -17,7 +17,7 @@ describe('ListarPacienteComponent', () => {
     new Paciente(123, 'Christian', 'Lopez', new Date(), 'christian@correo.com', 1112222, 1, 1),
     new Paciente(245, 'Paula', 'Orjuela', new Date(), 'paula@correo.com', 1112222, 1, 1),
     new Paciente(123, 'Natalia', 'Gonzalez', new Date(), 'natalia@correo.com', 1112222, 1, 1)
-  ]
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -38,7 +38,7 @@ describe('ListarPacienteComponent', () => {
     pacienteService = TestBed.inject(PacienteService);
     spyOn(pacienteService, 'consultar').and.returnValue(
       of(dataSource)
-    )
+    );
     fixture.detectChanges();
   });
 
@@ -49,7 +49,7 @@ describe('ListarPacienteComponent', () => {
   it('should have three patients', () => {
     component.dataSource.subscribe(resultado => {
       expect(3).toBe(resultado.length);
-    })
-  })
+    });
+  });
 
 });

@@ -17,7 +17,7 @@ describe('ListarCategoriaComponent', () => {
     new Categoria(1, 'A', 3000, 5000),
     new Categoria(2, 'B', 5000, 8000),
     new Categoria(3, 'C', 8000, 12000)
-  ]
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -44,12 +44,12 @@ describe('ListarCategoriaComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  })
+  });
 
   it('should have three categories', () => {
     component.dataSource.subscribe(resultado => {
       expect(3).toBe(resultado.length);
-    })
-  })
+    });
+  });
 
 });

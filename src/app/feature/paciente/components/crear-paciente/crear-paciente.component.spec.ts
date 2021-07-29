@@ -17,7 +17,7 @@ describe('CrearPacienteComponent', () => {
   let component: CrearPacienteComponent;
   let fixture: ComponentFixture<CrearPacienteComponent>;
   let pacienteService: PacienteService;
-  const valorEsperado: number = 123;
+  const valorEsperado = 123;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -43,7 +43,7 @@ describe('CrearPacienteComponent', () => {
 
     spyOn(pacienteService, 'guardar').and.returnValue(
       of(valorEsperado)
-    )
+    );
     fixture.detectChanges();
   });
 
@@ -52,18 +52,18 @@ describe('CrearPacienteComponent', () => {
   });
 
   it('add patient', () => {
-    (<HTMLInputElement>document.getElementById('idPaciente')).value = '123';
-    (<HTMLInputElement>document.getElementById('idDocumento')).value = '1';
-    (<HTMLInputElement>document.getElementById('nombrePaciente')).value = 'Christian';
-    (<HTMLInputElement>document.getElementById('apellidosPaciente')).value = 'Lopez';
-    (<HTMLInputElement>document.getElementById('emailPaciente')).value = 'christian@correo.com';
-    (<HTMLInputElement>document.getElementById('telefonoPaciente')).value = '1234567';
-    (<HTMLInputElement>document.getElementById('idCategoria')).value = '1';
-    (<HTMLInputElement>document.getElementById('fechaNacimientoPaciente')).value = '1999-5-26';
+    (document.getElementById('idPaciente') as HTMLInputElement).value = '123';
+    (document.getElementById('idDocumento') as HTMLInputElement).value = '1';
+    (document.getElementById('nombrePaciente') as HTMLInputElement).value = 'Christian';
+    (document.getElementById('apellidosPaciente') as HTMLInputElement).value = 'Lopez';
+    (document.getElementById('emailPaciente') as HTMLInputElement).value = 'christian@correo.com';
+    (document.getElementById('telefonoPaciente') as HTMLInputElement).value = '1234567';
+    (document.getElementById('idCategoria') as HTMLInputElement).value = '1';
+    (document.getElementById('fechaNacimientoPaciente') as HTMLInputElement).value = '1999-5-26';
 
     document.getElementById('submit').click();
 
     expect(component.idPaciente).toBe(123);
-  })
+  });
 
 });

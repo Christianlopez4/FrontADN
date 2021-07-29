@@ -17,7 +17,7 @@ describe('CrearCitaComponent', () => {
   let component: CrearCitaComponent;
   let fixture: ComponentFixture<CrearCitaComponent>;
   let citaService: CitaService;
-  const valorEsperado: number = 1;
+  const valorEsperado = 1;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -43,7 +43,7 @@ describe('CrearCitaComponent', () => {
 
     spyOn(citaService, 'guardar').and.returnValue(
       of(valorEsperado)
-    )
+    );
 
     fixture.detectChanges();
   });
@@ -53,9 +53,10 @@ describe('CrearCitaComponent', () => {
   });
 
   it('add medical appointment', () => {
-    (<HTMLInputElement>document.getElementById('fechaCita')).value = '2021-7-29';
-    (<HTMLInputElement>document.getElementById('horaCita')).value = '14:00:00';
-    (<HTMLInputElement>document.getElementById('idPacienteCita')).value = '123';
+
+    (document.getElementById('fechaCita') as HTMLInputElement).value = '2021-7-29';
+    (document.getElementById('horaCita') as HTMLInputElement).value = '14:00:00';
+    (document.getElementById('idPacienteCita') as HTMLInputElement).value = '123';
 
     document.getElementById('submit').click();
 

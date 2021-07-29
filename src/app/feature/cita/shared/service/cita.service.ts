@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core/services/http.service';
 import { environment } from 'src/environments/environment';
+import { CitaModule } from '../../cita.module';
 import { Cita } from '../model/cita';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: CitaModule
 })
 export class CitaService {
 

@@ -8,14 +8,14 @@ export class Paciente {
     idCategoria: number;
     idDocumento: number;
 
-    constructor(id: number, nombre: string, apellidos: string, fechaNacimiento: Date, correoElectronico: string, telefono: number, idCategoria: number, idDocumento: number) {
+    constructor(id: number, name: string, lastname: string, birthday: Date, email: string, telefono: number, idCat: number, idDoc: number) {
         this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.fechaNacimiento = fechaNacimiento;
-        this.correoElectronico = correoElectronico;
+        this.nombre = name;
+        this.apellidos = lastname;
+        this.fechaNacimiento = birthday;
+        this.correoElectronico = email;
         this.telefono = telefono;
-        this.idCategoria = idCategoria;
-        this.idDocumento = idDocumento;
+        this.idCategoria = idCat;
+        this.idDocumento = idDoc;
     }
 }

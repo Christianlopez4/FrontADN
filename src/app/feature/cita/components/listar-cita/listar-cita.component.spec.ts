@@ -17,7 +17,7 @@ describe('ListarCitaComponent', () => {
     new Cita(1, new Date(), new Date(), 3000, 123, 'ACTIVA'),
     new Cita(2, new Date(), new Date(), 6000, 246, 'ACTIVA'),
     new Cita(3, new Date(), new Date(), 5000, 369, 'ACTIVA')
-  ]
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -38,7 +38,7 @@ describe('ListarCitaComponent', () => {
     citaService = TestBed.inject(CitaService);
     spyOn(citaService, 'consultar').and.returnValue(
       of(dataSource)
-    )
+    );
     fixture.detectChanges();
   });
 
@@ -49,7 +49,7 @@ describe('ListarCitaComponent', () => {
   it('should have three medical appointment', () => {
     component.dataSource.subscribe(resultado => {
       expect(3).toBe(resultado.length);
-    })
-  })
+    });
+  });
 
 });

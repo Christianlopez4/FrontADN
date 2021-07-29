@@ -47,14 +47,14 @@ export class CrearPacienteComponent implements OnInit {
     this.categoriaService.consultar()
     .subscribe(categorias => {
       this.categorias = categorias;
-    })
+    });
   }
 
   private cargarDocumentos() {
     this.documentoService.consultar()
     .subscribe(documentos => {
       this.documentos = documentos;
-    })
+    });
   }
 
   onSubmit() {

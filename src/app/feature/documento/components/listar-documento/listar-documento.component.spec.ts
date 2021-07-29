@@ -17,7 +17,7 @@ describe('ListarDocumentoComponent', () => {
     new Documento(1, 'Doc1'),
     new Documento(2, 'Doc2'),
     new Documento(3, 'Doc3')
-  ]
+  ];
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -38,7 +38,7 @@ describe('ListarDocumentoComponent', () => {
     documentoService = TestBed.inject(DocumentoService);
     spyOn(documentoService, 'consultar').and.returnValue(
       of(dataSource)
-    )
+    );
     fixture.detectChanges();
   });
 
@@ -49,7 +49,7 @@ describe('ListarDocumentoComponent', () => {
   it('should have three documents', () => {
     component.dataSource.subscribe(resultado => {
       expect(3).toBe(resultado.length);
-    })
+    });
   });
 
 });
