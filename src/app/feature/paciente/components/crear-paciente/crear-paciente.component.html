@@ -16,7 +16,7 @@
         <div class="col">
           <mat-form-field appearance="fill">
             <mat-label>Documento</mat-label>
-            <mat-select formControlName="idDocumento" required>
+            <mat-select id="idDocumento" formControlName="idDocumento" required>
               <mat-option *ngFor="let documento of documentos" [value]="documento.id">
                 {{documento.titulo}}
               </mat-option>
@@ -66,7 +66,7 @@
         <div class="col">
           <mat-form-field appearance="fill">
             <mat-label>Categoria</mat-label>
-            <mat-select formControlName="idCategoria" required>
+            <mat-select id="idCategoria" formControlName="idCategoria" required>
               <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
                 {{categoria.titulo}}
               </mat-option>
@@ -86,7 +86,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Guardar</button>
+      <button mat-raised-button id="submit" color="primary" type="submit">Guardar</button>
     </mat-card-actions>
   </mat-card>
 </form>

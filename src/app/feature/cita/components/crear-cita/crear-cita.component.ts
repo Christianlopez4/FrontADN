@@ -9,7 +9,7 @@ import { CitaService } from '../../shared/service/cita.service';
 })
 export class CrearCitaComponent implements OnInit {
   citaForm: FormGroup;
-
+  idCita: number;
   constructor(protected citaService: CitaService) {}
 
   ngOnInit() {
@@ -27,8 +27,9 @@ export class CrearCitaComponent implements OnInit {
 
   onSubmit(): void {
     this.citaService.guardar(this.citaForm.value)
-    .subscribe(() => {
+    .subscribe(idCita => {
       alert('Cita creada satisfactoriamente');
+      this.idCita = idCita;
     });
   }
 }

@@ -15,6 +15,7 @@ export class CrearPacienteComponent implements OnInit {
   pacienteForm: FormGroup;
   categorias: Categoria[] = [];
   documentos: Documento[] = [];
+  idPaciente: number;
 
   constructor(
     protected pacienteService: PacienteService, 
@@ -58,8 +59,9 @@ export class CrearPacienteComponent implements OnInit {
 
   onSubmit() {
     this.pacienteService.guardar(this.pacienteForm.value)
-    .subscribe(() => {
+    .subscribe(idPaciente => {
       alert('Paciente creado satisfactoriamente');
+      this.idPaciente = idPaciente;
     });
   }
 }

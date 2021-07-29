@@ -15,6 +15,6 @@ export class CitaService {
   }
 
   public guardar(cita: Cita) {
-    return this.http.doPost<Cita, Number>(`${environment.endpoint}/citas`, cita, this.http.optsName('crear cita'));
+    return this.http.doPost<Cita, number>(`${environment.endpoint}/citas`, cita, this.http.optsName('crear cita'));
   }
 }
