@@ -12,6 +12,8 @@ import { PacienteService } from '../../shared/service/paciente.service';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CategoriaService } from '@shared/services/categoria/service/categoria.service';
+import { DocumentoService } from '@shared/services/documento/service/documento.service';
 
 describe('CrearPacienteComponent', () => {
   let component: CrearPacienteComponent;
@@ -32,7 +34,7 @@ describe('CrearPacienteComponent', () => {
         MatRadioModule,
         MatSelectModule,
       ],
-      providers: [PacienteService, HttpService]
+      providers: [PacienteService, CategoriaService, DocumentoService, HttpService]
     }).compileComponents();
   }));
 
