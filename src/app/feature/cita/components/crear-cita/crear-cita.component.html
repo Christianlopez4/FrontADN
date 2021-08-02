@@ -1,0 +1,42 @@
+<form [formGroup]="citaForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Información de la cita</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="fill">
+            <input matInput type="date" id="fechaCita" name="fechaCita" formControlName="fecha">
+            <mat-error *ngIf="citaForm.controls['fecha'].hasError('required')">
+              Date is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <input matInput type="time" id="horaCita" name="horaCita" min="09:00" max="18:00" formControlName="hora">
+            <mat-error *ngIf="citaForm.controls['hora'].hasError('required')">
+              Hour is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="">
+            <input matInput type="number" id="idPacienteCita" name="idPacienteCita" placeholder="Id paciente" formControlName="idPaciente" >
+            <mat-error *ngIf="citaForm.controls['idPaciente'].hasError('required')">
+              Patient's id is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button id="submit" color="primary" type="submit">Guardar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
