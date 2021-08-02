@@ -19,7 +19,7 @@ export class CrearCitaComponent implements OnInit {
   private construirFormularioCita() {
     this.citaForm = new FormGroup({
       fecha: new FormControl('', [Validators.required]),
-      hora: new FormControl('', [Validators.required]), 
+      hora: new FormControl('', [Validators.required]),
       idPaciente: new FormControl('', [Validators.required]),
       estado: new FormControl('ACTIVA', [Validators.required]),
     });

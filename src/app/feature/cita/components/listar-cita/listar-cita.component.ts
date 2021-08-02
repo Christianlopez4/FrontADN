@@ -19,4 +19,10 @@ export class ListarCitaComponent implements OnInit {
     this.dataSource = this.citaService.consultar();
   }
 
+  cancelarCita(id: number) {
+    this.citaService.cancelar(id)
+    .subscribe(() => {
+      alert('Cita cancelada');
+    });
+  }
 }

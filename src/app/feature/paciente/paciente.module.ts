@@ -24,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { PacienteService } from './shared/service/paciente.service';
 import { DocumentoService } from '@shared/services/documento/service/documento.service';
 import { CategoriaService } from '@shared/services/categoria/service/categoria.service';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -47,8 +48,9 @@ import { CategoriaService } from '@shared/services/categoria/service/categoria.s
     MatCardModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
-  ],
+    MatNativeDateModule,
+    SharedModule
+    ],
   providers: [PacienteService, DocumentoService, CategoriaService]
 })
 export class PacienteModule { }

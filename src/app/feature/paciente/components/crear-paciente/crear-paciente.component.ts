@@ -18,10 +18,10 @@ export class CrearPacienteComponent implements OnInit {
   idPaciente: number;
 
   constructor(
-    protected pacienteService: PacienteService, 
+    protected pacienteService: PacienteService,
     protected categoriaService: CategoriaService,
     protected documentoService: DocumentoService,
-    ) {}
+  ) { }
 
   ngOnInit() {
     this.construirFormularioPaciente();
@@ -33,35 +33,34 @@ export class CrearPacienteComponent implements OnInit {
     this.pacienteForm = new FormGroup({
       id: new FormControl('', [Validators.required]),
       nombre: new FormControl('', [Validators.required]),
-      apellidos: new FormControl('', [Validators.required]), 
+      apellidos: new FormControl('', [Validators.required]),
       fechaNacimiento: new FormControl('', [Validators.required]),
       correoElectronico: new FormControl('', [Validators.required, Validators.email]),
       telefono: new FormControl('', [Validators.required]),
       idCategoria: new FormControl('', [Validators.required]),
       idDocumento: new FormControl('', [Validators.required])
     });
-    
   }
 
   private cargarCategorias() {
     this.categoriaService.consultar()
-    .subscribe(categorias => {
-      this.categorias = categorias;
-    });
+      .subscribe(categorias => {
+        this.categorias = categorias;
+      });
   }
 
   private cargarDocumentos() {
     this.documentoService.consultar()
-    .subscribe(documentos => {
-      this.documentos = documentos;
-    });
+      .subscribe(documentos => {
+        this.documentos = documentos;
+      });
   }
 
   onSubmit() {
     this.pacienteService.guardar(this.pacienteForm.value)
-    .subscribe(idPaciente => {
-      alert('Paciente creado satisfactoriamente');
-      this.idPaciente = idPaciente;
-    });
+      .subscribe(idPaciente => {
+        alert('Paciente creado satisfactoriamente');
+        this.idPaciente = idPaciente;
+      });
   }
 }
