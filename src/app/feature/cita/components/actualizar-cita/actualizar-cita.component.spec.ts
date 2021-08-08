@@ -1,32 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
 import { Cita } from '../../shared/model/cita';
 import { CitaService } from '../../shared/service/cita.service';
 
-import { ListarCitaComponent } from './listar-cita.component';
+import { ActualizarCitaComponent } from './actualizar-cita.component';
 
-describe('ListarCitaComponent', () => {
-  let component: ListarCitaComponent;
-  let fixture: ComponentFixture<ListarCitaComponent>;
+describe('ActualizarCitaComponent', () => {
+  let component: ActualizarCitaComponent;
+  let fixture: ComponentFixture<ActualizarCitaComponent>;
   let citaService: CitaService;
-  const dataSource: Cita[] = [
-    new Cita(1, new Date(), new Date(), 3000, 123, 'ACTIVA'),
-    new Cita(2, new Date(), new Date(), 6000, 246, 'ACTIVA'),
-    new Cita(3, new Date(), new Date(), 5000, 369, 'ACTIVA')
-  ];
   const valorEsperado = 1;
+  const cita = new Cita(1, new Date(), new Date(), 3000, 123, 'ACTIVA');
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListarCitaComponent ],
+      declarations: [ ActualizarCitaComponent ],
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
+        ReactiveFormsModule,
       ],
       providers: [CitaService, HttpService]
     })
@@ -34,16 +32,16 @@ describe('ListarCitaComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListarCitaComponent);
+    fixture = TestBed.createComponent(ActualizarCitaComponent);
     component = fixture.componentInstance;
     citaService = TestBed.inject(CitaService);
-    spyOn(citaService, 'consultar').and.returnValue(
-      of(dataSource)
-    );
-    spyOn(citaService, 'cancelar').and.returnValue(
-      of(valorEsperado)
-    );
 
+    spyOn(citaService, 'actualizar').and.returnValue(
+        of(valorEsperado)
+    );
+    spyOn(citaService, 'buscar').and.returnValue(
+        of(cita)
+    );
     fixture.detectChanges();
   });
 
@@ -51,15 +49,14 @@ describe('ListarCitaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('debería listar las citas', () => {
-    component.dataSource.subscribe(resultado => {
-      expect(3).toBe(resultado.length);
-    });
-  });
+  it('debería actualizar una cita', () => {
 
-  it('debería cancelar una cita', () => {
-    component.cancelarCita(1);
+    (document.getElementById('fechaCita') as HTMLInputElement).value = '2021-8-9';
+    (document.getElementById('horaCita') as HTMLInputElement).value = '14:00:00';
+
+    document.getElementById('submit').click();
+
     expect(component.idCita).toBe(valorEsperado);
-  });
+});
 
 });

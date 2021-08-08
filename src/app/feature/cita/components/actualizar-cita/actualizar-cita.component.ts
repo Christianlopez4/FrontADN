@@ -13,6 +13,7 @@ export class ActualizarCitaComponent implements OnInit {
 
   citaForm: FormGroup;
   cita: Cita;
+  idCita: number;
 
   constructor(private route: ActivatedRoute, protected citaService: CitaService, private router: Router) { }
 
@@ -20,20 +21,21 @@ export class ActualizarCitaComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.buscarCita(params.id);
     });
+    this.construirFormularioCita();
   }
 
   buscarCita(id: number) {
     this.citaService.buscar(id)
     .subscribe(res => {
       this.cita = res;
-      this.construirFormularioCita();
     });
   }
 
   actualizarCita() {
     this.citaService.actualizar(this.citaForm.value, this.cita.id)
-    .subscribe(() => {
+    .subscribe(res => {
       alert('Cita actualizada');
+      this.idCita = res;
       this.router.navigate(['/cita']);
     });
   }

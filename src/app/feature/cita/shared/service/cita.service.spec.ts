@@ -52,4 +52,39 @@ describe('CitaService', () => {
     req.event(new HttpResponse<number>({body: 1}));
   });
 
+  it('debería cancelar una cita', () => {
+
+    service.cancelar(1).subscribe(respuesta => {
+      expect(respuesta).toBe(1);
+    });
+
+    const req = httpMock.expectOne(apiEndpointCitasConsulta + '/1/cancelar');
+    expect(req.request.method).toBe('DELETE');
+    req.event(new HttpResponse<number>({body: 1}));
+  });
+
+  it('debería buscar una cita', () => {
+    const dummyCita = new Cita(1, new Date(), new Date(), 3000, 123, 'ACTIVA');
+
+    service.buscar(1).subscribe(respuesta => {
+      expect(respuesta.id).toBe(1);
+    });
+
+    const req = httpMock.expectOne(apiEndpointCitasConsulta + '/1');
+    expect(req.request.method).toBe('GET');
+    req.event(new HttpResponse<Cita>({body: dummyCita}));
+  });
+
+  it('debería actualizar una cita', () => {
+    const dummyCita = new Cita(1, new Date(), new Date(), 3000, 123, 'ACTIVA');
+
+    service.actualizar(dummyCita, 1).subscribe(respuesta => {
+      expect(respuesta).toBe(1);
+    });
+
+    const req = httpMock.expectOne(apiEndpointCitasConsulta + '/1');
+    expect(req.request.method).toBe('PUT');
+    req.event(new HttpResponse<number>({body: 1}));
+  });
+
 });
