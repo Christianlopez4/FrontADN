@@ -15,12 +15,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CitaService } from './shared/service/cita.service';
+import { ActualizarCitaComponent } from './components/actualizar-cita/actualizar-cita.component';
 
 @NgModule({
   declarations: [
     NavCitaComponent,
     ListarCitaComponent,
-    CrearCitaComponent
+    CrearCitaComponent,
+    ActualizarCitaComponent
   ],
   imports: [
     CommonModule,

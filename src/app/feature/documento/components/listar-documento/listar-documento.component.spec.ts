@@ -46,7 +46,7 @@ describe('ListarDocumentoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have three documents', () => {
+  it('debería listar los documentos', () => {
     component.dataSource.subscribe(resultado => {
       expect(3).toBe(resultado.length);
     });

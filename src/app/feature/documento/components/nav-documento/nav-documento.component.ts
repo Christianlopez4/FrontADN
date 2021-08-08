@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-nav-documento',
   templateUrl: './nav-documento.component.html',
   styleUrls: ['./nav-documento.component.css']
 })
-export class NavDocumentoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class NavDocumentoComponent {
 
 }

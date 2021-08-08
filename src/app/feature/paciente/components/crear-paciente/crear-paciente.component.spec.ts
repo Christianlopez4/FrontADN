@@ -1,11 +1,9 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { CrearPacienteComponent } from './crear-paciente.component';
 import { PacienteService } from '../../shared/service/paciente.service';
@@ -28,11 +26,9 @@ describe('CrearPacienteComponent', () => {
         HttpClientTestingModule,
         NoopAnimationsModule,
         ReactiveFormsModule,
-        MatButtonModule,
-        MatCardModule,
         MatInputModule,
-        MatRadioModule,
         MatSelectModule,
+        RouterTestingModule
       ],
       providers: [PacienteService, CategoriaService, DocumentoService, HttpService]
     }).compileComponents();
@@ -53,7 +49,7 @@ describe('CrearPacienteComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('add patient', () => {
+  it('debería agregar un paciente', () => {
     (document.getElementById('idPaciente') as HTMLInputElement).value = '123';
     (document.getElementById('idDocumento') as HTMLInputElement).value = '1';
     (document.getElementById('nombrePaciente') as HTMLInputElement).value = 'Christian';

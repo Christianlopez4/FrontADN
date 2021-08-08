@@ -46,7 +46,7 @@ describe('ListarCitaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have three medical appointment', () => {
+  it('debería listar las citas', () => {
     component.dataSource.subscribe(resultado => {
       expect(3).toBe(resultado.length);
     });

@@ -46,7 +46,7 @@ describe('ListarPacienteComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have three patients', () => {
+  it('debería listar los pacientes', () => {
     component.dataSource.subscribe(resultado => {
       expect(3).toBe(resultado.length);
     });
