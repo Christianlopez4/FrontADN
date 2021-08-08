@@ -2,5 +2,5 @@ projectKey=co.com.ceiba.adn-christian.lopez:citas
 serverUrl=http://localhost:9000
 serverVersion=9.0.1.46107
 dashboardUrl=http://localhost:9000/dashboard?id=co.com.ceiba.adn-christian.lopez%3Acitas
-ceTaskId=AXsndFiXogp5Df1W0cby
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXsndFiXogp5Df1W0cby
+ceTaskId=AXsnjZsnogp5Df1W0cb0
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXsnjZsnogp5Df1W0cb0
