@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MenuItem } from '@core/modelo/menu-item';
 
 @Component({
@@ -27,14 +27,9 @@ import { MenuItem } from '@core/modelo/menu-item';
     color: #106cc8;
   }`],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   @Input()
   items: MenuItem[];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

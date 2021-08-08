@@ -17,6 +17,14 @@ export class CitaService {
   }
 
   public cancelar(id: number) {
-    return this.http.doPost<number, number>(`${environment.endpoint}/citas/${id}/cancelar`, id, this.http.optsName('cancelar cita'));
+    return this.http.doDelete<number>(`${environment.endpoint}/citas/${id}/cancelar`, this.http.optsName('cancelar cita'));
+  }
+
+  public buscar(id: number) {
+    return this.http.doGet<Cita>(`${environment.endpoint}/citas/${id}`, this.http.optsName('buscar cita'));
+  }
+
+  public actualizar(cita: Cita, id: number) {
+    return this.http.doPut<Cita, number>(`${environment.endpoint}/citas/${id}`, cita, this.http.optsName('actualizar cita'));
   }
 }

@@ -5,7 +5,6 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { ListarCategoriaComponent } from './listar-categoria.component';
 import { Categoria } from '@shared/services/categoria/model/categoria';
 import { of } from 'rxjs';
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -23,7 +22,6 @@ describe('ListarCategoriaComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ListarCategoriaComponent ],
       imports: [
-        CommonModule,
         HttpClientModule,
         RouterTestingModule
       ],
@@ -46,7 +44,7 @@ describe('ListarCategoriaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have three categories', () => {
+  it('debería listar las categorias', () => {
     component.dataSource.subscribe(resultado => {
       expect(3).toBe(resultado.length);
     });

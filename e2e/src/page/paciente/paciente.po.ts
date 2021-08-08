@@ -13,6 +13,7 @@ export class PacientePage {
     private inputTelefono = element(by.id('telefonoPaciente'));
     private inputIdCategoria = element(by.id('idCategoria'));
     private inputFechaNacimiento = element(by.id('fechaNacimientoPaciente'));
+    private buttonCrearPaciente = element(by.id('submit'));
 
     async clickBotonListarPacientes() {
         await this.linkListarPaciente.click();
@@ -56,5 +57,9 @@ export class PacientePage {
 
     async ingresarFechaNacimiento(fechaNacimiento) {
         await this.inputFechaNacimiento.sendKeys(fechaNacimiento);
+    }
+
+    async crearPaciente() {
+        await this.buttonCrearPaciente.click();
     }
 }

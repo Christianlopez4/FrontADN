@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PacienteService } from '../../shared/service/paciente.service';
+import { Router } from '@angular/router';
 import { CategoriaService } from '@shared/services/categoria/service/categoria.service';
 import { DocumentoService } from '@shared/services/documento/service/documento.service';
 import { Categoria } from '@shared/services/categoria/model/categoria';
@@ -21,6 +22,7 @@ export class CrearPacienteComponent implements OnInit {
     protected pacienteService: PacienteService,
     protected categoriaService: CategoriaService,
     protected documentoService: DocumentoService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -61,6 +63,8 @@ export class CrearPacienteComponent implements OnInit {
       .subscribe(idPaciente => {
         alert('Paciente creado satisfactoriamente');
         this.idPaciente = idPaciente;
-      });
+        this.router.navigate(['/paciente/listar']);
+      }
+      );
   }
 }

@@ -10,8 +10,9 @@ import { Observable } from 'rxjs';
 })
 export class ListarCitaComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'fecha', 'hora', 'costo', 'idPaciente', 'estado'];
+  displayedColumns: string[] = ['id', 'fecha', 'hora', 'costo', 'idPaciente', 'estado', 'acciones'];
   dataSource: Observable<Cita[]>;
+  idCita: number;
 
   constructor(protected citaService: CitaService) { }
 
@@ -21,8 +22,10 @@ export class ListarCitaComponent implements OnInit {
 
   cancelarCita(id: number) {
     this.citaService.cancelar(id)
-    .subscribe(() => {
-      alert('Cita cancelada');
+    .subscribe(res => {
+      this.ngOnInit();
+      this.idCita = res;
     });
   }
+
 }

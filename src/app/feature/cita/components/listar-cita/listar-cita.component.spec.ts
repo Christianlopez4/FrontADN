@@ -18,6 +18,7 @@ describe('ListarCitaComponent', () => {
     new Cita(2, new Date(), new Date(), 6000, 246, 'ACTIVA'),
     new Cita(3, new Date(), new Date(), 5000, 369, 'ACTIVA')
   ];
+  const valorEsperado = 1;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -39,6 +40,10 @@ describe('ListarCitaComponent', () => {
     spyOn(citaService, 'consultar').and.returnValue(
       of(dataSource)
     );
+    spyOn(citaService, 'cancelar').and.returnValue(
+      of(valorEsperado)
+    );
+
     fixture.detectChanges();
   });
 
@@ -46,10 +51,15 @@ describe('ListarCitaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have three medical appointment', () => {
+  it('debería listar las citas', () => {
     component.dataSource.subscribe(resultado => {
       expect(3).toBe(resultado.length);
     });
+  });
+
+  it('debería cancelar una cita', () => {
+    component.cancelarCita(1);
+    expect(component.idCita).toBe(valorEsperado);
   });
 
 });

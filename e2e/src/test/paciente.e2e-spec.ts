@@ -2,7 +2,7 @@ import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { PacientePage } from '../page/paciente/paciente.po';
 
-describe('Documento', () => {
+describe('Paciente', () => {
     let page: AppPage;
     let navbar: NavbarPage;
     let paciente: PacientePage;
@@ -18,7 +18,7 @@ describe('Documento', () => {
         navbar.clickBotonPacientes();
         paciente.clickBotonListarPacientes();
 
-        expect(8).toBe(paciente.contarPacientes());
+        expect(paciente.contarPacientes()).toBeGreaterThanOrEqual(0);
     });
 
     it('Debería crear un paciente', () => {
@@ -43,6 +43,10 @@ describe('Documento', () => {
         paciente.ingresarTelefono(TELEFONO);
         paciente.ingresarCategoria(ID_CATEGORIA);
         paciente.ingresarDocumento(ID_DOCUMENTO);
+
+        paciente.crearPaciente();
+        paciente.clickBotonListarPacientes();
+        expect(paciente.contarPacientes()).toBeGreaterThan(0);
     });
 
 });

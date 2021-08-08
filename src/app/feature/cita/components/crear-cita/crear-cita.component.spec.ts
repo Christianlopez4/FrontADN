@@ -1,11 +1,8 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSelectModule } from '@angular/material/select';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { CrearCitaComponent } from './crear-cita.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -26,11 +23,8 @@ describe('CrearCitaComponent', () => {
         HttpClientTestingModule,
         NoopAnimationsModule,
         ReactiveFormsModule,
-        MatButtonModule,
-        MatCardModule,
         MatInputModule,
-        MatRadioModule,
-        MatSelectModule,
+        RouterTestingModule
       ],
       providers: [CitaService, HttpService]
     }).compileComponents();
@@ -52,7 +46,7 @@ describe('CrearCitaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('add medical appointment', () => {
+  it('debería agregar una cita', () => {
 
     (document.getElementById('fechaCita') as HTMLInputElement).value = '2021-7-29';
     (document.getElementById('horaCita') as HTMLInputElement).value = '14:00:00';

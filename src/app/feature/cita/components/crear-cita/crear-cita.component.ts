@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CitaService } from '../../shared/service/cita.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-cita',
@@ -10,7 +11,7 @@ import { CitaService } from '../../shared/service/cita.service';
 export class CrearCitaComponent implements OnInit {
   citaForm: FormGroup;
   idCita: number;
-  constructor(protected citaService: CitaService) {}
+  constructor(protected citaService: CitaService, private router: Router) {}
 
   ngOnInit() {
     this.construirFormularioCita();
@@ -28,8 +29,8 @@ export class CrearCitaComponent implements OnInit {
   onSubmit(): void {
     this.citaService.guardar(this.citaForm.value)
     .subscribe(idCita => {
-      alert('Cita creada satisfactoriamente');
       this.idCita = idCita;
+      this.router.navigate(['/cita/listar']);
     });
   }
 }
